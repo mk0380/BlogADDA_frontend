@@ -44,7 +44,7 @@ const CreatePost = () => {
         data.set('file', files);
 
         ev.preventDefault();
-        const response = await fetch('http://localhost:4000/post', {
+        const response = await fetch('https://blogadda-backend.onrender.com/post', {
             method: 'POST',
             body: data,
             credentials: 'include'
