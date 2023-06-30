@@ -19,7 +19,7 @@ export default function PostPage() {
   }, []);
 
   const deletePost =async () =>{
-    const response =await fetch(`http://localhost:4000/delete/${id}`)
+    const response =await fetch(`https://blogadda-backend.onrender.com/delete/${id}`)
     const result = await response.json();
     
     alert(result.message)
@@ -54,7 +54,7 @@ export default function PostPage() {
         </div>
       )}
       <div className="image">
-        <img src={`http://localhost:4000/${postInfo.cover}`} alt=""/>
+        <img src={`https://blogadda-backend.onrender.com/${postInfo.cover}`} alt=""/>
       </div>
       <div className="content" dangerouslySetInnerHTML={{__html:postInfo.content}} />
     </div>
