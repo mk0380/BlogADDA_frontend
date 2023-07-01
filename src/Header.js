@@ -8,11 +8,7 @@ const Header = () => {
   const logout =async () =>{
     const response =await fetch('https://blogadda-backend.onrender.com/logout',{
       method:"POST",
-      credentials:"include",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
+      credentials:"include"
     })
     const result =await response.json();
     alert(result.message)
