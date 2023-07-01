@@ -10,7 +10,7 @@ export default function PostPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/post/${id}`)
+    fetch(`https://blogadda-backend.onrender.com/post/${id}`)
       .then(response => {
         response.json().then(res => {
           setPostInfo(res.data);
