@@ -10,7 +10,7 @@ export default function RegisterPage() {
 
   async function register(ev) {
     ev.preventDefault();
-    const response = await fetch('https://blogadda-backend.onrender.com/register', {
+    const response = await fetch('https://blog-a74c.onrender.com/register', {
       method: 'POST',
       body: JSON.stringify({username,password}),
       headers: {'Content-Type':'application/json'},
