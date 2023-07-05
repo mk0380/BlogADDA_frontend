@@ -11,7 +11,7 @@ export default function RegisterPage() {
 
   async function login(ev) {
     ev.preventDefault();
-    const response = await fetch('https://blogadda-backend.onrender.com/login', {
+    const response = await fetch('https://blog-a74c.onrender.com/login', {
       method: 'POST',
       body: JSON.stringify({username,password}),
       headers: {'Content-Type':'application/json'},
