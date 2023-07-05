@@ -6,7 +6,7 @@ const Header = () => {
   const navigate = useNavigate()
 
   const logout =async () =>{
-    const response =await fetch('https://blogadda-backend.onrender.com/logout',{
+    const response =await fetch('https://blog-a74c.onrender.com/logout',{
       method:"POST",
       credentials:"include"
     })
