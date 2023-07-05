@@ -10,7 +10,7 @@ export default function PostPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://blogadda-backend.onrender.com/post/${id}`)
+    fetch(`https://blog-a74c.onrender.com/post/${id}`)
       .then(response => {
         response.json().then(res => {
           setPostInfo(res.data);
@@ -19,7 +19,7 @@ export default function PostPage() {
   }, []);
 
   const deletePost =async () =>{
-    const response =await fetch(`https://blogadda-backend.onrender.com/delete/${id}`)
+    const response =await fetch(`https://blog-a74c.onrender.com/delete/${id}`)
     const result = await response.json();
     
     alert(result.message)
