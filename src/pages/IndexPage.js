@@ -5,7 +5,7 @@ const IndexPage = () => {
 
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch('https://blogadda-backend.onrender.com/post').then(response => {
+    fetch('https://blog-a74c.onrender.com/post').then(response => {
       response.json().then(result => {
         setPosts(result.data);
       });
