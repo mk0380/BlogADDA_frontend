@@ -37,7 +37,7 @@ const EditPost = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://blogadda-backend.onrender.com/post/' + id).then(response => {
+        fetch('https://blog-a74c.onrender.com/post/' + id).then(response => {
             response.json().then(res => {
                 setTitle(res.data.title)
                 setContent(res.data.content)
@@ -57,7 +57,7 @@ const EditPost = () => {
             data.set('file', files?.[0]);
 
         ev.preventDefault();
-        const response = await fetch('https://blogadda-backend.onrender.com/post', {
+        const response = await fetch('https://blog-a74c.onrender.com/post', {
             method: 'PUT',
             body: data,
             credentials: 'include'
