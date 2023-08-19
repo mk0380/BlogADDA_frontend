@@ -42,6 +42,8 @@ const CreatePost = () => {
         data.set('summary', summary);
         data.set('content', content);
         data.set('file', files);
+        data.set('user',localStorage.getItem("user"))
+
 
         ev.preventDefault();
         const response = await fetch('https://blog-a74c.onrender.com/post', {
