@@ -54,7 +54,7 @@ export default function PostPage() {
         </div>
       )}
       <div className="image">
-        <img src={`https://https://blog-a74c.onrender.com/${postInfo.cover}`} alt=""/>
+        <img src={`https://blog-a74c.onrender.com/${postInfo.cover}`} alt=""/>
       </div>
       <div className="content" dangerouslySetInnerHTML={{__html:postInfo.content}} />
     </div>
