@@ -12,7 +12,6 @@ const Header = () => {
     })
     const result =await response.json();
     alert(result.message)
-    navigate(0)
     if(result.success){
       localStorage.removeItem("user")
     }
