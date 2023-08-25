@@ -27,7 +27,7 @@ export default function PostPage() {
     if(result.success){
       navigate('/')
     }
-
+navigate(0)
   }
 
   if (!postInfo) return '';
