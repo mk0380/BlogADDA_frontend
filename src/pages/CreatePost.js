@@ -59,8 +59,35 @@ const CreatePost = () => {
     }
 
     const imageHandler =async (ev) =>{
-       await setFiles(ev.target.files[0])
+       const pic = ev.target.files[0];
+
+       const set_pic = await convertBase64(pic);
+
+       await set_piccture(set_pic);
+
+    //    console.log(files);
+
     }
+
+    const set_piccture = set_pic => {
+        setFiles(set_pic)
+    }
+
+    const convertBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(file);
+    
+          fileReader.onload = () => {
+            resolve(fileReader.result);
+          };
+    
+          fileReader.onerror = (error) => {
+            reject(error);
+          };
+        });
+      };
+
 
     return (
         <form onSubmit={createNewPost} encType="multipart/form-data" style={{display:"flex",flexDirection:"column",gap:"10px",alignItems:"center"}}>
