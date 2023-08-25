@@ -53,8 +53,8 @@ const EditPost = () => {
         data.set('summary', summary);
         data.set('content', content);
         data.set('id', id)
-        if (files?.[0])
-            data.set('file', files?.[0]);
+        if (files.length!=0)
+            data.set('file', files);
 
         ev.preventDefault();
         const response = await fetch('https://blog-a74c.onrender.com/post', {
@@ -70,8 +70,41 @@ const EditPost = () => {
     }
 
     const imageHandler =async (ev) =>{
-        await setFiles(ev.target.files)
+        const pic = ev.target.files[0];
+
+        console.log(pic);
+ 
+        const set_pic = await convertBase64(pic);
+
+        console.log(set_pic);
+ 
+        await set_piccture(set_pic);
+ 
+     //    console.log(files);
+ 
      }
+ 
+     const set_piccture = set_pic => {
+         setFiles(set_pic)
+     }
+ 
+     const convertBase64 = (file) => {
+         return new Promise((resolve, reject) => {
+           const fileReader = new FileReader();
+           fileReader.readAsDataURL(file);
+     
+           fileReader.onload = () => {
+             resolve(fileReader.result);
+           };
+     
+           fileReader.onerror = (error) => {
+             reject(error);
+           };
+         });
+       };
+ 
+ 
+
  
 
     return (
