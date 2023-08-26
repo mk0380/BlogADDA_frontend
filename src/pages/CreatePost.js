@@ -120,7 +120,7 @@ const CreatePost = () => {
              <TextField type="file"
             required
                 variant="outlined"
-             inputProps={{ style: { color: "white" } }}
+             inputProps={{ accept:"image/*",style: { color: "white" } }}
              InputLabelProps={{className: "textfield__label"}}
              fullWidth
              onChange={imageHandler}
