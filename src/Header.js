@@ -13,7 +13,6 @@ const Header = () => {
       credentials:"include"
     })
     const result =await response.json();
-    alert(result.message)
     if(result.success){
       localStorage.removeItem("user")
       toast.success("Logout Successfully !",{
