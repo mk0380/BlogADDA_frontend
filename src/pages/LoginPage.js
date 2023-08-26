@@ -1,6 +1,8 @@
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import {TextField} from '@material-ui/core'
+import { toast } from 'react-toastify';
+
 
 
 export default function RegisterPage() {
@@ -21,12 +23,16 @@ export default function RegisterPage() {
     if(result.data){
        localStorage.setItem("user",username)
     }
-    alert(result.message)
-    if(result.success){
-      return navigate('/')
-    }else{
-      return navigate('/login')
-    }
+    if (result.success) {
+      toast.success("Login Successfully !", {
+          closeButton: false
+      })
+     return navigate('/')
+  } else {
+      toast.error(result.message, {
+          closeButton: false
+      })
+  }
   }
   return (
     <form className="login" onSubmit={login} style={{display:"flex",flexDirection:"column",gap:"10px",alignItems:"center"}}>
