@@ -1,5 +1,7 @@
 import React from 'react'
 import {  useNavigate,NavLink } from 'react-router-dom'
+import { toast } from 'react-toastify';
+
 
 const Header = () => {
 
@@ -14,6 +16,9 @@ const Header = () => {
     alert(result.message)
     if(result.success){
       localStorage.removeItem("user")
+      toast.success("Logout Successfully !",{
+        closeButton:false
+      })
     }
     return navigate('/login')
   }
