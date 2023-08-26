@@ -1,6 +1,8 @@
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import {TextField} from '@material-ui/core'
+import {toast } from 'react-toastify';
+
 
 export default function RegisterPage() {
   const [username, setUsername] = useState('');
@@ -17,9 +19,16 @@ export default function RegisterPage() {
       credentials:'include'
     });
     const result = await response.json();
-    alert(result.message)
     if(result.success){
-      return navigate('/login')
+      toast.success(result.message+" !",{
+        closeButton:false
+      })
+
+      navigate('/login')
+    }else{
+      toast.error(result.message,{
+        closeButton:false
+      })
     }
   }
 
