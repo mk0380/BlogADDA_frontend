@@ -3,6 +3,8 @@ import 'react-quill/dist/quill.snow.css';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {TextField} from '@material-ui/core'
+import { toast } from 'react-toastify';
+
 
 
 const modules = {
@@ -52,9 +54,15 @@ const CreatePost = () => {
             credentials: 'include'
         });
         const result = await response.json();
-        alert(result.message)
         if (result.data) {
-            return navigate('/')
+            toast.success("Post Created Successfully !", {
+                closeButton: false
+            })
+           return navigate('/')
+        } else {
+            toast.error(result.message, {
+                closeButton: false
+            })
         }
     }
 
