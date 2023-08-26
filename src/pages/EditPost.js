@@ -3,6 +3,8 @@ import 'react-quill/dist/quill.snow.css';
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {TextField} from '@material-ui/core'
+import { toast } from 'react-toastify';
+
 
 
 const modules = {
@@ -63,9 +65,15 @@ const EditPost = () => {
             credentials: 'include'
         });
         const result = await response.json();
-        alert(result.message)
-        if (result.success) {
+        if (result.data) {
+            toast.success("Post Edited Successfully !", {
+                closeButton: false
+            })
             return navigate('/post/' + id)
+        } else {
+            toast.error(result.message, {
+                closeButton: false
+            })
         }
     }
 
