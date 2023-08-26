@@ -2,6 +2,8 @@ import { useEffect, useState} from "react";
 import {useParams, useNavigate} from "react-router-dom";
 import {formatISO9075} from "date-fns";
 import {Link} from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 export default function PostPage() {
   const [postInfo,setPostInfo] = useState(null);
@@ -21,13 +23,16 @@ export default function PostPage() {
   const deletePost =async () =>{
     const response =await fetch(`https://blog-a74c.onrender.com/delete/${id}`)
     const result = await response.json();
-    
-    alert(result.message)
-
-    if(result.success){
-      navigate('/')
-    }
-navigate(0)
+    if (result.success) {
+      toast.success("Post Deleted Successfully !", {
+          closeButton: false
+      })
+     return navigate('/')
+  } else {
+      toast.error(result.message, {
+          closeButton: false
+      })
+  }
   }
 
   if (!postInfo) return '';
